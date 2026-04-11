@@ -65,7 +65,7 @@ body {
 
 section {
   width: 100%;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
 
 .glass-card {
@@ -259,6 +259,8 @@ section {
   margin-bottom: 5rem;
   text-align: center;
   text-shadow: 5px 5px 1px rgba(0, 0, 0, 0.1);
+  padding-top: 5rem;
+  border-top: 2px dotted #a8a29e;
 }
 .concept__description {
   font-size: 1rem;
@@ -279,7 +281,7 @@ section {
 }
 .concept__description-span {
   display: inline-block;
-  margin: 1.5rem 0;
+  margin: 1rem 0;
   font-size: 1.5rem;
   color: rgb(128, 182, 240);
   text-decoration-line: underline;
