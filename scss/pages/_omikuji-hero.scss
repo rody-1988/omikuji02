@@ -54,6 +54,6 @@
     line-height: 1.625;
     font-weight: 500;
     color: $color-gane-dark;
-    white-space: pre-wrap;// これを追加！「改行や空白をそのまま表示して」という命令
+    white-space: pre-line; // これを追加！「改行や空白をそのまま表示して」という命令
   }
 }
