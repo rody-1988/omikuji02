@@ -54,7 +54,8 @@
     },
     {
       title: "吉",
-      message: "懐かしい友人に連絡してみる？\n心温まるニュースが舞い込む予感。📞",
+      message:
+        "懐かしい友人に連絡してみる？\n心温まるニュースが舞い込む予感。📞",
       weight: 8,
     },
     {
@@ -243,6 +244,20 @@
       weight: 0.1, // 他が3〜10の中、圧倒的に出にくい設定
     },
   ];
+  // --- ラッキーデータ ---
+  const LUCKY_MAP = {
+    サンライズゴールド: "#ffcc00",
+    スカイブルー: "#87ceeb",
+    マテ茶ブラウン: "#8b4513",
+    フォレストグリーン: "#228b22",
+    シェルピンク: "#f08080",
+    ホワイト: "#ffffff",
+    ターコイズ: "#40e0d0",
+    ラベンダー: "#e6e6fa",
+    コーラルレッド: "#ff7f50",
+    ミントグリーン: "#98ff98",
+  }; // ガネーちゃん的に縁起の良さそうな色と名前のマップ
+  const LUCKY_NUMBERS = ["1", "3", "7", "8", "11", "22", "33"]; // ガネーちゃん的に縁起の良さそうな数字
 
   function pickWeighted(list) {
     const total = list.reduce((s, item) => s + item.weight, 0);
@@ -264,19 +279,89 @@
   const btn = document.getElementById("draw-btn");
 
   btn.addEventListener("click", () => {
-    // 1. クリック時の演出（少し凹ませる）
-    card.style.transform = "scale(0.95)";
-    card.style.transition = "transform 0.15s ease";
+    // クリック時の演出（少し凹ませる）
+    card.style.transform = "scale(0.98)";
+    card.style.transition = "transform 0.1s";
 
     setTimeout(() => {
-      // 2. 運勢を決定
+      // 1. 運勢を決定
       const picked = pickWeighted(FORTUNES);
 
-      // 3. 内容を書き換え
+      // 2. LUCKY_MAPの「キー（名前）」だけを配列にして、そこからランダムに選ぶ
+      const colorNames = Object.keys(LUCKY_MAP); // ["サンライズゴールド", "スカイブルー", ...] となる
+      const colorName =
+        colorNames[Math.floor(Math.random() * colorNames.length)];
+
+      // 3. 選ばれた名前を使って、LUCKY_MAPから「色コード」を引く
+      const colorCode = LUCKY_MAP[colorName];
+
+      const number =
+        LUCKY_NUMBERS[Math.floor(Math.random() * LUCKY_NUMBERS.length)];
+
+      // 4. 内容を書き換え
       titleEl.textContent = picked.title;
       messageEl.textContent = picked.message;
 
-      // 4. 背景の光（glow）を運勢に合わせて調整
+      // 5. ラッキーカラーとナンバーも表示
+      document.getElementById("result-color").textContent = colorName;
+      document.getElementById("result-item").textContent = number;
+
+      //ドットに色をつける
+      const dot = document.querySelector(".color-dot");
+      if (dot) {
+        dot.style.backgroundColor = colorCode;
+        dot.style.border = `1px solid rgba(225, 225, 225, 0.3)`; // ドットの周りに薄い枠をつける
+        dot.style.boxShadow = `0 0 8px ${colorCode}`; // ドット色の光をつける
+      }
+      //4.エリアを表示
+      document.getElementById("result-details").style.display = "block";
+      document.getElementById("share-area").style.display = "block";
+
+      //5.シェアURLを動的に生成
+      const siteUrl = window.location.href ; // 共有したいサイトのURL
+
+      const shareText = `今日の運勢は【${picked.title}】でした！
+      『${picked.message}』
+      カラー：${colorName} / ナンバー：${number} 
+      #Gane-Chan-Shore で今日も運気アップ！
+      ${siteUrl}`;
+      const encodedText = encodeURIComponent(shareText);
+
+      //各ボタンのシェアURLを設定
+
+      // Threads
+      const btnThreads = document.getElementById("share-threads");
+      if (btnThreads) {
+        btnThreads.onclick = () => {
+          window.open(
+            `https://www.threads.net/intent/post?text=${encodedText}`,
+          );
+          gtag("event", "click_share_threads", { event_category: "share" });
+        };
+      }
+
+      // X (Twitter)
+      const btnX = document.getElementById("share-x");
+      if (btnX) {
+        btnX.onclick = () => {
+          // Xは文章の中にURLが含まれていれば、自動でリンクにしてくれます
+          window.open(`https://twitter.com/intent/tweet?text=${encodedText}`);
+          gtag("event", "click_share_x", { event_category: "share" });
+        };
+      }
+
+      // LINE
+      const btnLine = document.getElementById("share-line");
+      if (btnLine) {
+        btnLine.onclick = () => {
+          window.open(
+            `https://social-plugins.line.me/lineit/share?url=&text=${encodedText}`,
+          );
+          gtag("event", "click_share_line", { event_category: "share" });
+        };
+      }
+
+      // 背景の光（glow）を運勢に合わせて調整
       // 大吉なら暖色系、それ以外は落ち着いた色
       const glowColor = picked.title === "大吉" ? "#ffa494" : "#e2d1c3";
       glow.style.background = `radial-gradient(circle, ${glowColor} 0%, transparent 70%)`;

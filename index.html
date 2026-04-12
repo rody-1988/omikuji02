@@ -36,26 +36,40 @@
       </header>
 
       <main class="main">
-        <section id="omikuji-main" class="omikuji-hero">
-          <div id="result-card" class="glass-card omikuji-card">
-            <div id="result-glow" class="omikuji-card__glow"></div>
-            <p class="omikuji-card__label">TODAY'S MESSAGE</p>
-            <div id="result-title" class="omikuji-card__title">—</div>
-            <p id="result-message" class="omikuji-card__message">
-              リラックスして、<br />ボタンをタップしてみてね。
-            </p>
-          </div>
+      <section id="omikuji-main" class="omikuji-hero">
+        <div id="result-card" class="glass-card omikuji-card">
+          <div id="result-glow" class="omikuji-card__glow"></div>
+          <p class="omikuji-card__label">TODAY'S MESSAGE</p>
+          <div id="result-title" class="omikuji-card__title">—</div>
+          <p id="result-message" class="omikuji-card__message">
+          リラックスして、<br />ボタンをタップしてみてね。
+          </p>
 
-          <button
-            id="draw-btn"
-            type="button"
-            class="btn-draw omikuji-hero__btn"
-            onclick="gtag('event', 'click_omikuji', {'event_category': 'omikuji'});"
+          <div id="result-details" class="omikuji-card__details" style="display: none;">
+            <p class="result-meta">🎨 Color: 
+              <span class="color-dot" style="display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 5px;"></span>
+              <span id="result-color"></span></p>
+            <p>☕️ Number: <span id="result-item"></span></p>
+            <div id="share-area" class="share-area" style="display: none;">
+              <div class="share-btns-container">
+                <button id="share-threads" class="share-btn">Threads</button>
+                <button id="share-x" class="share-btn">X</button>
+                <button id="share-line" class="share-btn">LINE</button>
+              </div>
+              <p class="share-label">結果をシェア</p>
+            </div>
+          </div>
+        </div>
+
+        <button
+          id="draw-btn"
+          type="button"
+          class="btn-draw omikuji-hero__btn"
           >
-            運勢を淹れる
-          </button>
-        </section>
-      </main>
+          運勢を淹れる
+        </button>
+      </section>
+      
       <section id="concept" class="concept">
         <h2 class="concept__title">Welcome to <br />Gane-chan Shore!</h2>
         <p class="concept__description">
@@ -79,7 +93,7 @@
           新しいカタチを、どうぞ存分に楽しんでいってください！
         </p>
       </section>
-
+      </main>
       <footer class="page__footer">
         <nav class="page__footer-nav">
           <ul class="page__footer-links">

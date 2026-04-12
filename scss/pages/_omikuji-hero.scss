@@ -56,4 +56,49 @@
     color: $color-gane-dark;
     white-space: pre-line; // これを追加！「改行や空白をそのまま表示して」という命令
   }
+
+  .omikuji-card__details {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px dashed rgba(255, 255, 255, 0.3); // メッセージとの区切り線
+
+    .result-meta {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+  }
+
+  .share-area {
+    .share-label {
+      font-size: 1.2rem;
+      margin-top: 0.8rem;
+      opacity: 0.8;
+    }
+
+    .share-btns-container {
+      display: flex; // これで横並びになります
+      justify-content: center; // 真ん中寄せ
+      gap: 12px; // ボタン同士の隙間
+    }
+
+    .share-btn {
+      flex: 1; // ボタンの幅を均等にする
+      max-width: 100px; // 広がりすぎないように制限
+      padding: 8px 0;
+      border-radius: 50px; // 丸いボタン
+      border: 1px solid rgba(202, 178, 178, 0.8);
+      background: rgb(21 178 223 / 20%);
+      margin-top: 1rem;
+
+      color: black;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-2px); // 浮き上がる演出
+      }
+    }
+  }
 }
