@@ -235,6 +235,18 @@
         "今日出会う人はみんなあなたの味方。\nオープンハートで接してみて。🤝",
       weight: 3,
     },
+    {
+      title: "末吉",
+      message:
+        "今日は『ゆるさ』がテーマ。\n自分も他人も、完璧じゃなくていいんだよ。🌈",
+      weight: 10,
+    },
+    {
+      title: "吉",
+      message:
+        "新しいことに挑戦してみよう。\n小さな一歩が、思わぬ幸運を引き寄せるかも。🚀",
+      weight: 8,
+    },
 
     // --- ✨ 超激レア：ガネ吉（出現率激低） ✨ ---
     {
@@ -256,6 +268,17 @@
     ラベンダー: "#e6e6fa",
     コーラルレッド: "#ff7f50",
     ミントグリーン: "#98ff98",
+    ライトミント: "#ccffcc",
+    パステルイエロー: "#ffffe0",
+    ベビーブルー: "#bfefff",
+    ピーチ: "#ffdab9",
+    ライトラベンダー: "#e0b0ff",
+    ペールオレンジ: "#ffcc99",
+    ライトシアン: "#e0ffff",
+    ベージュ: "#f5f5dc",
+    ライトピンク: "#ffb6c1",
+    オレンジ: "#ffa500",
+    コーラルレッド: "#ff7f50",
   }; // ガネーちゃん的に縁起の良さそうな色と名前のマップ
   const LUCKY_NUMBERS = ["1", "3", "7", "8", "11", "22", "33"]; // ガネーちゃん的に縁起の良さそうな数字
 
@@ -318,7 +341,7 @@
       document.getElementById("share-area").style.display = "block";
 
       //5.シェアURLを動的に生成
-      const siteUrl = window.location.href ; // 共有したいサイトのURL
+      const siteUrl = window.location.href; // 共有したいサイトのURL
 
       const shareText = `今日の運勢は【${picked.title}】でした！
       『${picked.message}』
