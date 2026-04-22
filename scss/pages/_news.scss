@@ -1,10 +1,44 @@
 @use "../foundation/variables" as *;
 
-.news {
+news {
   &__subtitle {
     font-size: 1.25rem;
     font-weight: 600;
-    color: $color-stone-500;
+    color: $color-stone-500; // これは定義があるのでOK
     text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  &__item {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1rem 0;
+    // 下線を石の色（stone-400）にする
+    border-bottom: 1px solid rgba($color-stone-400, 0.3);
+
+    &.is-hidden {
+      display: none;
+    }
+  }
+
+  &__btn {
+    margin: 2rem auto 0;
+    display: block;
+    padding: 0.8rem 2rem;
+
+    // 背景をグラデーションに！
+    background: $gradient-button;
+    border: none;
+    border-radius: 9999px; // 丸くするとビーチっぽい
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: $shadow-button; // 影も活用
+    transition: all 0.3s;
+
+    &:hover {
+      box-shadow: $shadow-button-hover;
+      transform: translateY(-2px); // 少し浮かせるとエンジニアっぽい
+    }
   }
 }
