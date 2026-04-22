@@ -1,14 +1,27 @@
-// news.js
 (function () {
-  const newsBtn = document.getElementById("news-more-btn");
-  const hiddenItems = document.querySelectorAll(".news__item.is-hidden");
+  // すべての「Read more...」ボタンを取得
+  const moreBtns = document.querySelectorAll(".js-news-more");
 
-  if (newsBtn) {
-    newsBtn.addEventListener("click", () => {
-      hiddenItems.forEach((item) => {
-        item.classList.toggle("is-hidden");
+  moreBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      // 1. クリックされたボタンの親要素（news__group）を探す
+      const group = btn.closest(".news__group");
+      
+      // 2. そのグループ内にある 3件目以降のアイテムを取得
+      const items = group.querySelectorAll(".news__item");
+      
+      items.forEach((item, index) => {
+        if (index >= 2) {
+          item.classList.toggle("is-hidden");
+        }
       });
-      newsBtn.textContent = (newsBtn.textContent === "もっと見る") ? "閉じる" : "もっと見る";
+
+      // 3. ボタンのテキストを切り替え
+      if (btn.textContent === "Read more...") {
+        btn.textContent = "Close";
+      } else {
+        btn.textContent = "Read more...";
+      }
     });
-  }
+  });
 })();

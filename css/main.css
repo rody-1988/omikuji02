@@ -339,36 +339,39 @@ h2 {
   letter-spacing: 0.1em;
 }
 
-news__subtitle {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #78716c;
-  text-align: center;
-  margin-bottom: 2rem;
+.news__group {
+  margin-bottom: 3.5rem;
 }
-news__item {
+.news__group-title {
+  font-size: 1.2rem;
+  letter-spacing: 0.1em;
+  color: #78716c;
+  margin-bottom: 1.5rem;
+  border-left: 3px solid #a8a29e;
+  padding-left: 1rem;
+}
+.news__item {
   display: flex;
   gap: 1.5rem;
   padding: 1rem 0;
-  border-bottom: 1px solid rgba(168, 162, 158, 0.3);
+  border-bottom: 1px solid rgba(168, 162, 158, 0.2);
+  font-size: 0.95rem;
 }
-news__item.is-hidden {
+.news__item.is-hidden {
   display: none;
 }
-news__btn {
-  margin: 2rem auto 0;
+.news__more-link {
   display: block;
-  padding: 0.8rem 2rem;
-  background: linear-gradient(to right, #f6d365, #fda085);
+  margin-top: 1rem;
+  background: none;
   border: none;
-  border-radius: 9999px;
-  color: #fff;
-  font-weight: bold;
+  color: #a8a29e;
+  font-size: 0.85rem;
+  font-style: italic;
   cursor: pointer;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s;
+  text-decoration: underline;
+  transition: color 0.3s;
 }
-news__btn:hover {
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  transform: translateY(-2px);
+.news__more-link:hover {
+  color: #78716c;
 }/*# sourceMappingURL=main.css.map */
