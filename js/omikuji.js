@@ -50,7 +50,7 @@
       const dot = document.querySelector(".color-dot");
       if (dot) {
         dot.style.backgroundColor = colorCode;
-        dot.style.border = `1px solid rgba(225, 225, 225, 0.3)`; // ドットの周りに薄い枠をつける
+        dot.style.border = `1px solid rgba(0, 0, 0, 0.9)`; // ドットの周りに薄い枠をつける
         dot.style.boxShadow = `0 0 8px ${colorCode}`; // ドット色の光をつける
       }
       //4.エリアを表示
@@ -60,10 +60,10 @@
       //5.シェアURLを動的に生成
       const siteUrl = window.location.href; // 共有したいサイトのURL
 
-      const shareText = `今日の運勢は【${picked.title}】でした！
+      const shareText = `今日の運勢は【${picked.title}】！
       『${picked.message}』
       カラー：${colorName} / ナンバー：${number} 
-      #Gane-Chan-Shore で今日も運気アップ！
+      #ガネーちゃん のおみくじで運気アップ！
       ${siteUrl}`;
       const encodedText = encodeURIComponent(shareText);
 
