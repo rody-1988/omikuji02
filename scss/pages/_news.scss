@@ -1,0 +1,10 @@
+@use "../foundation/variables" as *;
+
+.news {
+  &__subtitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: $color-stone-500;
+    text-align: center;
+  }
+}
