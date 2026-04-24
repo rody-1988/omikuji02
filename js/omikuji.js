@@ -63,7 +63,7 @@
       const shareText = `今日の運勢は【${picked.title}】！
       『${picked.message}』
       カラー：${colorName} / ナンバー：${number} 
-      #ガネーちゃん のおみくじで運気アップ！
+      #GaneChanShore 今日もいいことあるゾ！
       ${siteUrl}`;
       const encodedText = encodeURIComponent(shareText);
 
